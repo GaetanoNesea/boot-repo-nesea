@@ -8,14 +8,16 @@ import {IPokeapi} from '../models/pokemonapi';
 })
 export class PokeService {
 
-  private _baseApi = 'https://pokeapi.co/api/v2/pokemon/';
+  private _baseApi = 'https://pokeapi.co/api/v2/pokemon';
 
   constructor(
     private readonly pokeApi: HttpClient
   ) { }
 
 
-  getAll():Observable<IPokeapi>{
-    return this.pokeApi.get<IPokeapi>(`${this._baseApi}`)
+  getAll(name?: string):Observable<IPokeapi>{
+    return this.pokeApi.get<IPokeapi>(!name ? `${this._baseApi}` : `${this._baseApi}/${name}`)
   }
+  // nuovo service con il name
+  
 }
