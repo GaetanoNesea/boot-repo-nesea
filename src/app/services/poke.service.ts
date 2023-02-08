@@ -15,13 +15,19 @@ export class PokeService {
   ) { }
 
 
-  getAll(name?: string):Observable<IPokeapi>{
-    return this.pokeApi.get<IPokeapi>(!name ? `${this._baseApi}` : `${this._baseApi}/${name}`)
+  /**
+   * @description Get all pokemon senza parametro
+   */
+  getAll():Observable<IPokeapi>{
+    return this.pokeApi.get<IPokeapi>(`${this._baseApi}`);
   }
 
+  /**
+   * @description get one pokemon with pokemon name
+   */
   getPoke(name:string):Observable<IPokemon>{
     return this.pokeApi.get<IPokemon>(this._baseApi+"/"+name)
   }
   // nuovo service con il name
-  
+
 }
