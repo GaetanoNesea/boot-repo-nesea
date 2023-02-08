@@ -26,7 +26,7 @@ export class PokeService {
    * @description get one pokemon with pokemon name
    */
   getPoke(name:string):Observable<IPokemon>{
-    return this.pokeApi.get<IPokemon>(this._baseApi+"/"+name)
+    return this.pokeApi.get<IPokemon>(this._baseApi+"/"+name);
   }
   // nuovo service con il name
 

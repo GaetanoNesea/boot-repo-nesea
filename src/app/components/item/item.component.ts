@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { IResults } from 'src/app/models/pokemonapi';
+import {Component, Input, OnInit} from '@angular/core';
+import {IPokemon, IResults} from 'src/app/models/pokemonapi';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-item',
@@ -7,9 +8,18 @@ import { IResults } from 'src/app/models/pokemonapi';
   styleUrls: ['./item.component.scss']
 })
 export class ItemComponent implements OnInit {
-@Input() item!:IResults;
+  item?: IPokemon;
+  par?: string;
 
-constructor(){}
+  constructor(
+    private readonly router: Router
+  ) {
+    // console.log(this.router.getCurrentNavigation()!.extras.state!['pokemon']);
+    this.item = this.router.getCurrentNavigation()!.extras.state!['pokemon'];
+    this.par = this.router.getCurrentNavigation()!.extras.state!['all'];
+
+  }
+
   ngOnInit(): void {
   }
 }
