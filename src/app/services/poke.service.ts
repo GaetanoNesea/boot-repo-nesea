@@ -15,8 +15,8 @@ export class PokeService {
   ) { }
 
 
-  getAll(name?: string):Observable<IPokeapi>{
-    return this.pokeApi.get<IPokeapi>(!name ? `${this._baseApi}` : `${this._baseApi}/${name}`)
+  getAll():Observable<IPokeapi>{
+    return this.pokeApi.get<IPokeapi>(`${this._baseApi}`)
   }
 
   getPoke(name:string):Observable<IPokemon>{
