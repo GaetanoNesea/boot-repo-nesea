@@ -37,9 +37,14 @@ export class ListaComponent implements OnInit{
 
   setElement(item: IResults) {
     this.select= item;
-    this.service.getAll(item.name).subscribe({
+    this.service.getPoke(item.name).subscribe({
       next: (res) => {
         console.log(res, 'next');
+        this.router.navigate(['item'],{
+          state:{
+            pokemon:res
+          }
+        })
       },
       error(err) {
         console.error(err, 'error')

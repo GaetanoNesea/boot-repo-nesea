@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IResults } from 'src/app/models/pokemonapi';
 
 @Component({
@@ -6,6 +6,10 @@ import { IResults } from 'src/app/models/pokemonapi';
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.scss']
 })
-export class ItemComponent {
-@Input() item!:IResults
+export class ItemComponent implements OnInit {
+@Input() item!:IResults;
+
+constructor(){}
+  ngOnInit(): void {
+  }
 }
