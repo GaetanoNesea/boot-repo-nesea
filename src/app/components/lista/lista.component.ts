@@ -2,14 +2,14 @@ import {Component, OnInit} from '@angular/core';
 import {PokeService} from '../../services/poke.service';
 import {IResults} from '../../models/pokemonapi';
 import {filter, map} from 'rxjs';
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-lista',
   templateUrl: './lista.component.html',
   styleUrls: ['./lista.component.scss']
 })
-export class ListaComponent implements OnInit{
+export class ListaComponent implements OnInit {
 
   listaPoke: IResults[] = [];
   select?: IResults;
@@ -17,32 +17,39 @@ export class ListaComponent implements OnInit{
   lista$ = this.service.getAll()
     .pipe(
       //filter(resp => !!resp.results.length),
-      map(response => response.results)
-  );
+      map(response => {
+        this.service.lista = response.results;
+        return response.results
+        ),
+
+    );
+
   constructor(
-    readonly service: PokeService, private readonly router:Router
+    readonly service: PokeService, private readonly router: Router
   ) {
   }
+
   ngOnInit(): void {
     // this.service.getAll()
     //   .pipe(
     //     map(resposnse => resposnse.results)
     //   )
-      // .subscribe(data => {
-      //   this.listaPoke = data;
-      //   console.log(data);
-      // })
+    // .subscribe(data => {
+    //   this.listaPoke = data;
+    //   console.log(data);
+    // })
   }
 
 
   setElement(item: IResults) {
-    this.select= item;
+    // this.select= item;
     this.service.getPoke(item.name).subscribe({
       next: (res) => {
         console.log(res, 'next');
-        this.router.navigate(['item'],{
-          state:{
-            pokemon:res
+        this.router.navigate(['item'], {
+          state: {
+            pokemon: res,
+            all: 'prokekek'
           }
         })
       },
@@ -58,7 +65,7 @@ export class ListaComponent implements OnInit{
     //     user:item
     //   }
     // })
-    console.log(item);
+    // console.log(item);
     // inserire il service con il noem dell'item
     /*
     * posso chiamare un modal

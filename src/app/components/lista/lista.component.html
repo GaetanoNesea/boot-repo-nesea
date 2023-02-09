@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col" *ngIf="lista$ | async as lista">
-      <table class="table">
+      <table class="table table-striped border border-secondary border-3">
         <thead>
         <tr>
           <th scope="col"></th>
           <th scope="col">Nome</th>
           <th scope="col">Url</th>
-          <th scope="col">Action</th>
+          <th scope="col"></th>
         </tr>
         </thead>
         <tbody>
@@ -16,7 +16,7 @@
           <td>{{item.name}}</td>
           <td>{{item.url}}</td>
           <td>
-            <button type="button" (click)="setElement(item)" class="btn btn-primary">Modifica</button>
+            <button type="button" (click)="setElement(item)" class="btn btn-primary">Apri Carta</button>
           </td>
         </tr>
         </tbody>
