@@ -15,7 +15,7 @@ export class UserService implements OnInit {
   
   ngOnInit(): void {}
   
-  getUsers(): Observable<IUser[]>{
+  getUsers(item? : string): Observable<IUser[]>{
     return iif<IUser[],IUser[]>(
       () => !this.list.length,
       this.userApi.get<IUser[]>(this._baseApi).pipe(

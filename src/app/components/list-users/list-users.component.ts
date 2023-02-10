@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { map } from 'rxjs';
 import { IUser } from 'src/app/models/users.model';
 import { UserService } from 'src/app/services/user.service';
@@ -15,9 +16,24 @@ export class ListUsersComponent {
     map(response=>this.userService.list = response));
    
 
-  constructor(private readonly userService:UserService){}
+  constructor(private readonly userService:UserService,private readonly router:Router){}
 
-  setElement(item: IUser){
-    console.log(item);
+  addElement(){
+    this.userService.getUsers().subscribe({
+      next:(res)=>{
+        console.log(res,'next');
+        this.router.navigate(['insert'],{
+          state:{
+            insertUser:res
+          }
+        })
+      },
+      error(err){
+        console.error(err,'errore');
+      },
+      complete:()=>{
+        console.info('observe completato');
+      }
+    });
   }
 }

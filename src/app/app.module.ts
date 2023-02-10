@@ -7,6 +7,7 @@ import { ListUsersComponent } from './components/list-users/list-users.component
 import { InsertUserComponent } from './components/insert-user/insert-user.component';
 import { PatchUserComponent } from './components/patch-user/patch-user.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
