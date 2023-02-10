@@ -12,6 +12,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class InsertUserComponent{
 
+  items?:IUser[]= this.userService.list;
+
   myForm:FormGroup=new FormGroup ({
     id: new FormControl("",Validators.required),
 		nome: new FormControl("",Validators.required),
@@ -21,23 +23,17 @@ export class InsertUserComponent{
 		website: new FormControl("", Validators.required),
 						
 		})
-    submit() {
 
-      console.log(this.myForm.status, 'status form');
-      console.log('valid?', this.myForm.valid);
-      console.log('email', this.myForm.value.email);
-  
-      }
-
-  item?:IUser
-
-  constructor(private readonly router:Router){
-
-    console.log( this.item= this.router.getCurrentNavigation()!.extras.state!['insertUser']);
-    
-    this.item= this.router.getCurrentNavigation()!.extras.state!['insertUser'];
+  constructor(private readonly router:Router,private readonly userService:UserService){
+    //this.item=this.router.getCurrentNavigation()!.extras.state!['insertUser'];
   }
 
- 
+  submit() {
+
+    this.items?.push(this.myForm.value)
+    console.log(this.items)
+    
+
+    }
 
 }

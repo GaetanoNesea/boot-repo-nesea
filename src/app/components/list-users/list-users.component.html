@@ -7,7 +7,9 @@
             <th scope="col">ID</th>
             <th scope="col">Nome</th>
             <th scope="col">Username</th>
-            <th scope="col"></th>
+            <th scope="col">
+                <a routerLink="../insert" class="btn btn-primary">Nuovo User</a>
+            </th>
           </tr>
           </thead>
           <tbody>
@@ -16,7 +18,7 @@
             <td>{{item.name}}</td>
             <td>{{item.username}}</td>
             <td>
-              <button type="button" (click)="addElement()" class="btn btn-primary">Vedi Info</button>
+              <a routerLink="../modifica" class="btn btn-outline-primary">Set User</a>
             </td>
           </tr>
           </tbody>

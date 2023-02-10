@@ -1,1 +1,43 @@
-<p>patch-user works!</p>
+<div class="container title text-center  border border-3  col-6 p-6 ml-5 mb-2 ">   <!--  classe container -->
+    <div class="row ">
+      <h1 class="text-center ">Inserisci Persona</h1>
+      </div>
+      <form  [formGroup]="myForm" (ngSubmit)="submit()" class="text-center" class="form">
+        <div class="row p-3" class="id">
+            <p class="fst-italic lead m-2">Inserisci ID:</p> 
+            <input formControlName="id" type="text"class="form-control rounded-pill" placeholder="inserire id" title="inserisci id"/>
+            <p>{{myForm.value.id}}</p>
+		</div>
+        <div class="row p-3" class="nome">
+            <p class="fst-italic lead m-2">Inserisci Nome:</p> 
+            <input formControlName="nome" type="text"class="form-control rounded-pill" placeholder="inserire nome"title="inserisci nome"/>
+		</div>
+        <div class="row p-3" class="username">
+            <p class="fst-italic lead m-2">Inserisci Username:</p> 
+            <input formControlName="username" type="text"class="form-control rounded-pill" placeholder="inserire username"title="inserisci username"/>
+		</div>
+    
+        <div class="row p-3" class="email">
+            <p class="fst-italic lead m-2">Inserisci Email:</p> 
+            <input formControlName="email" type="text"class="form-control rounded-pill" placeholder="inserire email"title="inserisci email"/>
+		</div>
+
+        
+        <div class="row p-3" class="phone">
+            <p class="fst-italic lead m-2">Inserisci Phone:</p> 
+            <input formControlName="phone" type="text"class="form-control rounded-pill" placeholder="inserire phone"title="inserisci phone"/>
+		</div>
+
+        <div class="row p-3" class="website">
+            <p class="fst-italic lead m-2">Inserisci website:</p> 
+            <input formControlName="website" type="text"class="form-control rounded-pill" placeholder="inserire website"title="inserisci website"/>
+		</div>
+
+        
+
+          <div class="col" id="bottone">
+            <button type="submit" title="invio" class="btn btn-primary" name="submit">Invia</button>
+            <a class="btn btn-danger" routerLink="">Close</a>
+          </div>
+        </form>
+    </div>
