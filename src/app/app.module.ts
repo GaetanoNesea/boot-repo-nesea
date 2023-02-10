@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
 import { InsertUserComponent } from './components/insert-user/insert-user.component';
 import { PatchUserComponent } from './components/patch-user/patch-user.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PatchUserComponent } from './components/patch-user/patch-user.component
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
